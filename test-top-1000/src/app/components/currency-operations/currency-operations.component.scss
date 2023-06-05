@@ -1,0 +1,80 @@
+@import "/src/assets/baseStyle/mixins.scss";
+
+h2 {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -20%);
+}
+
+.operation-block {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+
+    form {
+        
+        .block {
+          color: rgb(45, 45, 45);
+          @include titleFont;
+          font-size: 14px;
+          margin: 5px;
+          position: relative;
+      
+          label {
+            display: flex;
+            flex-direction: column;
+            -webkit-box-pack: justify;
+            justify-content: space-between;
+            align-items: flex-start;
+            height: 110px;
+            padding: 8px 16px 4px;
+            border: 1px solid rgb(205, 215, 231);
+            border-radius: 2px;
+            margin-bottom: 0;
+      
+            &.bordered {
+              border: 1px solid rgb(51, 194, 51);
+            }
+      
+            span {
+              font-family: Roboto, sans-serif;
+              font-size: 12px;
+              line-height: 14px;
+              color: rgb(87, 87, 87);
+      
+              &.bordered {
+                color: rgb(51, 194, 51);
+              }
+            }
+      
+            input {
+              font-size: 28px;
+              line-height: 33px;
+              font-weight: bold;
+              color: rgb(45, 45, 45);
+              border: 0px;
+              outline: 0px;
+              width: 100%;
+            }
+          }
+      
+          select {
+            position: absolute;
+            top: 40%;
+            right: 15px;
+            padding: 5px;
+            outline: none;
+            border: none;
+            cursor: pointer;
+      
+            &:hover {
+              color: rgb(51, 194, 51);
+            }
+          }
+        }
+      }
+      
+}

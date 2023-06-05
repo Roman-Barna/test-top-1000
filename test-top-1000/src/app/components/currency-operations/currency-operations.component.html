@@ -1,0 +1,68 @@
+<main>
+  
+<h2>Currency converter</h2>
+<div class="operation-block" *ngIf="currentDate" >
+    <ng-container>
+
+      <form [formGroup]="formGroupFirst">
+        <div class="block">
+          <label for="field-1" #wrap1>
+            <span #span1>В мене є</span>
+            <input
+              type="number"
+              (focus)="addBorder([wrap1, span1])"
+              (blur)="removeBorder([wrap1, span1])"
+              id="field-1"
+              formControlName="count"
+              
+              (input)="changeCurrency(formGroupFirst.controls.count, formGroupSecond.controls.count, formGroupFirst.controls.select, formGroupSecond.controls.select)"
+            />
+            <span>1 {{formGroupFirst.controls.select.value}} до {{formGroupSecond.controls.select.value}}</span>
+          </label>
+      
+          <select formControlName="select" (change)="changeCurrency(formGroupFirst.controls.count, formGroupSecond.controls.count, formGroupFirst.controls.select, formGroupSecond.controls.select)">
+            <ng-container
+              *ngFor="let current of currentDate.rates | keyvalue; let index = index"
+            >
+              <option [value]="current.key" >{{ current.key }}</option>
+            </ng-container>
+          </select>
+        </div>
+
+      </form>
+    <form [formGroup]="formGroupSecond">
+        <div class="block">
+          <label for="field-2" #wrap2>
+            <span #span2>я отримаю</span>
+            <input
+              type="number"
+              (focus)="addBorder([wrap2, span2])"
+              (blur)="removeBorder([wrap2, span2])"
+              id="field-2"
+              formControlName="count"
+              (input)="changeCurrency(formGroupSecond.controls.count, formGroupFirst.controls.count, formGroupSecond.controls.select, formGroupFirst.controls.select)"
+            />
+            <span>1 {{formGroupSecond.controls.select.value}} до {{formGroupFirst.controls.select.value}}</span>
+          </label>
+      
+          <select  formControlName="select" (change)="changeCurrency(formGroupSecond.controls.count, formGroupFirst.controls.count, formGroupSecond.controls.select, formGroupFirst.controls.select)">
+            <ng-container
+              *ngFor="let current of currentDate.rates | keyvalue"
+            >
+              <option  [value]="current.key">{{ current.key }}</option>
+            </ng-container>
+          </select>
+        </div>
+      </form>
+
+
+
+
+
+    
+      
+
+     
+    </ng-container>
+  </div>
+</main>

@@ -1,0 +1,26 @@
+@import "/src/assets/baseStyle/mixins.scss";
+
+.header {
+
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(113, 152, 238);
+
+    .title {
+        @include titleFont;
+    }
+
+    .currents-block {
+        @include titleFont;
+
+        .current {
+            padding-bottom: 5px;
+
+            b:last-child {
+                @include sharedColor;
+            }
+        }
+    }
+}

@@ -1,0 +1,13 @@
+<div class="header" *ngIf="currentDate">
+  <h2 class="title">Сurrent exchange rate:</h2>
+  <div class="currents-block">
+    <ng-container
+      *ngFor="let current of currentDate.rates | keyvalue; let last = last"
+    >
+      <div class="current" *ngIf="current.value !== 1">
+        <b>{{ current.key }}</b>
+        :<b>{{ (1 / current.value).toFixed(2) }}</b>
+      </div>
+    </ng-container>
+  </div>
+</div>
